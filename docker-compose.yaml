@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  elasticsearch:
+    container_name: faq_es01
+    build: 
+      context: ./elasticsearch/
+      dockerfile: build/Dockerfile
+    environment:
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - TZ=Asia/Tokyo
+    ulimits: 
+      memlock:
+        soft: -1
+        hard: -1
+    logging: 
+      driver: 'json-file'
+      options: 
+        max-size: '10m'
+        max-file: '3'
+    ports: 
+      - "9200:9200"
+    healthcheck:
+      interval: 30s
+      retries: 10
+      test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
