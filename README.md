@@ -1,6 +1,6 @@
 # FAQ Search 
 
-フアン・ナンモカモ・ワカランチ
+挨拶ができるやつは建築もできる
 
 ## yarukoto
 [行政対話システムにおける検索エンジンTSUBAKIとBERTを併用したFAQ 検索の高度化](https://www.anlp.jp/proceedings/annual_meeting/2019/pdf_dir/F5-1.pdf)を試す。  
